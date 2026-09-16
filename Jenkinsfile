@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage('Build'){
             steps{
-               bat 'docker build -t abhisheik912/quickcart:latest .'
+               bat 'mvn clean package'
             }       
         }
 
@@ -13,6 +13,13 @@ pipeline{
                 bat 'mvn test'
             }
         }
+
+        stage('Docker Build'){
+            steps{
+               bat 'docker build -t abhisheik912/quickcart:latest .'
+            }       
+        }
+
 
         stage('SonarQube'){
             steps{
