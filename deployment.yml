@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quickcart
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quickcart
+  template:
+    metadata:
+      labels:
+        app: quickcart
+    spec:
+      containers:
+        - name: quickcart
+          image: abhisheik912/quickcart:1.0
+          ports:
+            - containerPort: 8081
