@@ -56,7 +56,7 @@ pipeline {
                     az login --service-principal ^
                     --username %AZURE_CLIENT_ID% ^
                     --password %AZURE_CLIENT_SECRET% ^
-                    --tenant %7b72c8cc-229a-44db-9efc-2a302e300bdf%
+                    --tenant 7b72c8cc-229a-44db-9efc-2a302e300bdf
                     '''
                 }
             }
