@@ -45,6 +45,10 @@ pipeline{
                 bat 'kubectl apply -f deployment.yml'
             }
         }
-            
+        stage('Azure CLI Test') {
+            steps {
+                bat 'az --version'
+            }
+        }
     }
 }    
