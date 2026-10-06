@@ -17,7 +17,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                bat 'docker build -t abhisheik912/quickcart:latest .'
+                bat 'docker build -t quickcartacr912.azurecr.io/quickcart:latest .'
             }
         }
 
