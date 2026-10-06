@@ -33,16 +33,11 @@ pipeline {
 
         stage('Trivy Scan') {
             steps {
-                bat 'trivy image --severity HIGH,CRITICAL --exit-code 1 abhisheik912/quickcart:latest'
+                bat 'trivy image --severity HIGH,CRITICAL --exit-code 1 quickcartacr912.azurecr.io/quickcart:latest'
             }
         }
 
-        stage('DockerHub') {
-            steps {
-                bat 'docker push abhisheik912/quickcart:latest'
-            }
-        }
-
+        
         stage('Azure Login') {
             steps {
                 withCredentials([
@@ -62,6 +57,13 @@ pipeline {
             }
         }
 
+        stage('ACR Push') {
+            steps {
+                bat 'az acr login --name quickcartacr912'
+                bat 'docker push quickcartacr912.azurecr.io/quickcart:latest'
+            }
+        }
+        
         stage('Deploy to Azure AKS') {
             steps {
                 bat '''

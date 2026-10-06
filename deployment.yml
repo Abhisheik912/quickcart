@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: quickcart
-          image: abhisheik912/quickcart:latest
+          image: quickcartacr912.azurecr.io/quickcart:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8081
